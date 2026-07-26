@@ -109,10 +109,10 @@ input:checked + .track .track-label.off {
 
 .thumb {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  width: calc(var(--switch-height) - 0px);
-  height: calc(var(--switch-height) - 0px);
+  top: -1px;
+  left: -1px;
+  width: calc(var(--switch-height) + 2px);
+  height: calc(var(--switch-height) + 2px);
   border-radius: 50%;
   background: #006757;
   display: flex;
