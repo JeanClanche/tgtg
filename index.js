@@ -86,9 +86,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                     <div class="col">
                         <div class="row p-3">
                             <div class="col-2 text-end align-self-center">
-                                <span class="badge rounded-circle bg-secondary p-2 fs-4">
-                                    CA
-                                </span>
+                                <img class='img-fluid' src='img/carouf.png'>
                             </div>
                             <div class="col text-start">
                                 <div class="row">
