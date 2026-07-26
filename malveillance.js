@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", async function() {
+    
+    const data = JSON.parse(sessionStorage.getItem('formData'));
+    console.log(data);
 
     const btn = document.getElementById('btn')
     const content = document.getElementById('content')
@@ -18,46 +21,6 @@ document.addEventListener("DOMContentLoaded", async function() {
                 col.append(img)
                 switchContainer.append(col)
                 setTimeout(() => {
-                    clearContent(content)
-
-                    const exp = document.createElement('div')
-                    exp.setAttribute('id', 'exp')
-                    exp.classList.add('row', 'rounded', 'm-0', 'text-center', 'text-light', 'py-2', 'mb-3', 'justify-content-center')
-
-                    const expTitleRow = document.createElement('div')
-                    expTitleRow.classList.add('row')
-
-                    const expTitle = document.createElement('span')
-                    expTitle.classList.add('fw-bold')
-                    expTitle.setAttribute('id', 'expTxt')
-                    expTitle.textContent = "Comment s'est passée votre expérience globale ?"
-
-                    const starRow = document.createElement('div')
-                    starRow.classList.add('row', 'justify-content-center', "my-2")
-
-                    const starCol = document.createElement('div')
-                    starCol.classList.add('col', 'my-2', 'fs-2')
-
-
-                    for(let i = 0 ; i<5 ; i++){
-                        const star = document.createElement('i')
-                        star.classList.add('fa-regular', 'fa-star', "mx-2")
-
-                        starCol.append(star)
-                    }
-
-                    const recap = document.createElement('div')
-                    recap.classList.add('row', 'text-center', 'm-0', 'rounded', 'justify-content-center', 'p-1', 'pt-0', 'mb-4')
-                    recap.setAttribute('id', 'recap')
-                    
-                    
-                    starRow.append(starCol)
-                    expTitleRow.append(expTitle)
-                    exp.append(expTitleRow, starRow)
-
-
-                    content.append(exp)
-
                     clearContent(content)
                     content.innerHTML = `
             <div id="exp" class="row rounded m-0 text-center text-light py-2 mb-3 justify-content-center">
@@ -90,11 +53,11 @@ document.addEventListener("DOMContentLoaded", async function() {
                             </div>
                             <div class="col text-start">
                                 <div class="row">
-                                    <span class="fw-bold">Carrefour City - Le Havre</span>
+                                    <span class="fw-bold">${data.nom}</span>
                                 </div>
                                 <div class="row">
                                     <span class="">
-                                        Panier Mixte
+                                        ${data.type}
                                     </span>
                                 </div>
                             </div>
@@ -123,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                                     <span class="titreRecap fw-bold">PANIER SURPRISE</span>
                                 </div>
                                 <div class="row">
-                                    <span>2 x Panier Mixte</span>
+                                    <span>${data.nb} x ${data.type}</span>
                                 </div>
                             </div>
                             <div class="col text-end">
@@ -131,7 +94,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                                     <span class="titreRecap fw-bold">TOTAL</span>
                                 </div>
                                 <div class="row">
-                                    <span class="text-lowercase">67,00 €</span>
+                                    <span class="text-lowercase">67,67€</span>
                                 </div>
                             </div>
                         </div>
@@ -169,112 +132,6 @@ document.addEventListener("DOMContentLoaded", async function() {
             }, 400);
         }
     })
-
-    //slide sa mère
-    const label = document.getElementById('switchLabel');
-    const track = document.getElementById('track');
-    const thumb = document.getElementById('thumb');
-    const fill = document.getElementById('fill');
-    const input = document.getElementById('btn');
-
-    const START_X = -1;
-
-    let dragging = false;
-    let moved = false;
-    let startX = 0;
-    let maxX = 0;
-    let currentX = START_X;
-
-    function getMaxX() {
-        return track.offsetWidth - thumb.offsetWidth + 1;
-    }
-
-    function setFillWidth(x) {
-        fill.style.width = (x + thumb.offsetWidth) + 'px';
-    }
-
-    function setThumbX(x) {
-        thumb.style.transition = 'none';
-        fill.style.transition = 'none';
-        thumb.style.left = x + 'px';
-        setFillWidth(x);
-    }
-
-    function resetThumb() {
-        thumb.style.transition = 'left 0.2s ease';
-        fill.style.transition = 'width 0.2s ease';
-        thumb.style.left = START_X + 'px';
-        fill.style.width = (START_X + thumb.offsetWidth) + 'px';
-        input.checked = false;
-    }
-
-    function validate() {
-        thumb.style.transition = 'left 0.2s ease';
-        fill.style.transition = 'width 0.2s ease';
-        thumb.style.left = maxX + 'px';
-        fill.style.width = '100%';
-        input.checked = true;
-        input.dispatchEvent(new Event('change'));
-    }
-
-    function onStart(clientX) {
-        if (input.checked) return;
-        const thumbRect = thumb.getBoundingClientRect();
-        const startedOnThumb = clientX >= thumbRect.left && clientX <= thumbRect.right;
-        if (!startedOnThumb) return;
-
-        dragging = true;
-        moved = false;
-        maxX = getMaxX();
-        startX = clientX - thumbRect.left;
-        currentX = START_X;
-    }
-
-    function onMove(clientX) {
-        if (!dragging) return;
-        const trackRect = track.getBoundingClientRect();
-        let x = clientX - trackRect.left - startX;
-        x = Math.max(START_X, Math.min(x, maxX));
-
-        if (Math.abs(x - START_X) > 3) moved = true;
-
-        currentX = x;
-        setThumbX(x);
-    }
-
-    function onEnd() {
-        if (!dragging) return;
-        dragging = false;
-
-        if (!moved) return;
-
-        if (currentX >= maxX - 5) {
-            validate();
-        } else {
-            resetThumb();
-        }
-    }
-
-    label.addEventListener('click', (e) => e.preventDefault());
-
-
-    thumb.addEventListener('touchstart', (e) => onStart(e.touches[0].clientX), { passive: true });
-    document.addEventListener('touchmove', (e) => {
-    if (dragging) onMove(e.touches[0].clientX);
-    }, { passive: true });
-    document.addEventListener('touchend', onEnd);
-
-
-    thumb.addEventListener('mousedown', (e) => onStart(e.clientX));
-    document.addEventListener('mousemove', (e) => onMove(e.clientX));
-    document.addEventListener('mouseup', onEnd);
-
-
-    input.addEventListener('change', () => {
-        if (input.checked) {
-            //
-        }
-    });
 })
 
 

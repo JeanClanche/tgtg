@@ -7,153 +7,105 @@
         <link rel="icon" type="image/x-icon" href="img/logo.png">
 
         <link rel="stylesheet" href="bootstrap-5.3.8/css/bootstrap.css">
-        <link rel="stylesheet" href="custom.css">
         
         <script src="fontawesome-7.3.1/js/all.js"></script>
-        <script src="index.js"></script>
+        <script src="form.js"></script>
     </head>
-    <body>
+    <body class="bg-secondary">
         <div class="container-fluid">
-            <div class="row p-2">
-                <div class="col-2">
-                    <span class="badge rounded-circle gris text-dark p-2 fs-5">
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </span>
-                </div>
-                <div class="col align-self-center">
-                    <span class="fw-bold">Votre réservation</span>
+            <div class="row justify-content-center mt-3">
+                <div class="col-11 shadow bg-primary rounded-4 p-3">
+
+                    <div class="row text-center">
+                        <h1>Fake TGTG</h1>
+                        <span>by Pedro</span>
+                    </div>
+
+                    <hr class="border-warning border-3 opacity-100 rounded-pill">
+
+                    <div class="row">
+                        <form>
+
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" name="nom" placeholder="" required>
+                                <label for="floatingInput">Nom de l'établissement</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <select class="form-select" name="logo" id="floatingSelect">
+                                    <option value="market">Carrefour Market</option>
+                                    <option value="city">Carrefour City</option>
+                                    <option value="paul">Paul</option>
+                                    <option value="Autre">Autre</option>
+                                </select>
+                                <label for="floatingSelect">Logo de l'établissement</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" name="type" placeholder="" required>
+                                <label for="floatingInput">Type de panier</label>
+                            </div>
+
+                            <div class="row justify-content-around mb-3">
+                                <div class="row text-center mb-3">
+                                    <span class="bg-light rounded-pill border border-warning border-2">Nombre de paniers</span>
+                                </div>
+                                <div class="col-2">
+                                    <input type="radio" class="btn-check" name="nb" id="one" value="1" autocomplete="off" checked>
+                                    <label class="btn btn-outline-warning" for="one">1</label>
+                                </div>
+                                <div class="col-2">
+                                    <input type="radio" class="btn-check" name="nb" id="two" value="2" autocomplete="off">
+                                    <label class="btn btn-outline-warning" for="two">2</label>
+                                </div>
+                                <div class="col-2">
+                                    <input type="radio" class="btn-check" name="nb" id="three" value="3" autocomplete="off">
+                                    <label class="btn btn-outline-warning" for="three">3</label>
+                                </div>
+                                <div class="col-2">
+                                    <input type="radio" class="btn-check" name="nb" id="four" value="4" autocomplete="off">
+                                    <label class="btn btn-outline-warning" for="four">4</label>
+                                </div>
+                                <div class="col-2">
+                                    <input type="radio" class="btn-check" name="nb" id="five" value="5" autocomplete="off">
+                                    <label class="btn btn-outline-warning" for="five">5</label>
+                                </div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="number" step=0.01 class="form-control" name="prix" placeholder="" required>
+                                <label for="floatingInput">Prix d'un seul panier</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" placeholder="" name="desc" id="desc" required></textarea>
+                                <label for="desc">Description du panier</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" placeholder="" id="ing" name="ing" required></textarea>
+                                <label for="ing">Ingrédients et allergènes</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="time" class="form-control" name="deb" placeholder="" required>
+                                <label for="floatingInput">Début collecte</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="time" class="form-control" name="fin" placeholder="" required>
+                                <label for="floatingInput">Fin collecte</label>
+                            </div>
+
+                            <div class="row px-5">
+                                <button type="submit" class="btn btn-success mb-3">Confirmer avec confirmation</button>
+                            </div>
+
+                        </form>
+                    </div>
+
                 </div>
             </div>
-
-            <hr class="mt-1">
-
-            <div id="content">
-                <div class="row px-3 mb-3">
-                    <div class="col text-center shadow rounded-3 p-3">
-                        <div class="row justify-content-center my-2">
-                            <div class="col-2">
-                                <img class="img-fluid" src="img/carouf.png">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <span class="fw-bold">
-                                Carrefour City - le Havre
-                            </span>
-                        </div>
-                        <div class="row">
-                            <span class="titreRecap">
-                                4 avenue des babouins, 75001 Le Havre, France
-                            </span>
-                        </div>
-                        <div class="row m-3 vert">
-                            <span>
-                                Trouver le magasin
-                                <i class="fa-solid fa-location-dot"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row px-3">
-                    <div class="col text-center shadow rounded-3 p-3">
-
-                        <div class="row text-center justify-content-around py-2 mb-3">
-                            <div class="col-4 border-bottom border-success border-2 pb-2">
-                                <span class="vert fw-bold small">
-                                    Récupérer
-                                </span>
-                            </div>
-                            <div class="col-4">
-                                <span class="titreRecap">
-                                    Ask-a-friend
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col text-start">
-                                <div class="row">
-                                    <span class="titreRecap fw-bold">DATE</span>
-                                </div>
-                                <div class="row">
-                                    <span>01 juin 2052</span>
-                                </div>
-                            </div>
-                            <div class="col text-end">
-                                <div class="row">
-                                    <span class="titreRecap fw-bold text-uppercase">à récupérer</span>
-                                </div>
-                                <div class="row">
-                                    <span class="text-lowercase">12:15 - 13:00</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col text-start">
-                                <div class="row">
-                                    <span class="titreRecap fw-bold">PANIER</span>
-                                </div>
-                                <div class="row">
-                                    <span>1 x Panier Mixte</span>
-                                </div>
-                            </div>
-                            <div class="col text-end">
-                                <div class="row">
-                                    <span class="titreRecap fw-bold text-uppercase">TOTAL</span>
-                                </div>
-                                <div class="row">
-                                    <span class="text-lowercase">7,98 €</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col text-start">
-                                <div class="row">
-                                    <span class="titreRecap fw-bold text-uppercase">à propos de ce panier surprise</span>
-                                </div>
-                                <div class="row">
-                                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col text-start">
-                                <div class="row">
-                                    <span class="titreRecap fw-bold text-uppercase">informations allergènes</span>
-                                </div>
-                                <div class="row">
-                                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="row p-4 pt-2 justify-content-center" id="switchContainer">
-                    <!--
-                    <btn class="btn bgVert text-light rounded-pill" type="button">
-                        Récupérer ma commande
-                    </btn>
-                    --> 
-
-                    <label class="switch px-0 rounded-pill" id="switchLabel" style="--switch-width:100%;--switch-height:70px;">
-                        <input type="checkbox" id="btn" style="pointer-events:none;">
-                        <span class="track" id="track">
-                            <span class="fill" id="fill"></span>
-                            <span class="track-label off">Récupérer mon panier</span>
-                            <span class="thumb" id="thumb">
-                            <i class="fa-solid fa-angle-right"></i>
-                            </span>
-                        </span>
-                    </label>
-                </div>
-            
-            </div>
-
         </div>
     </body>
 </html>

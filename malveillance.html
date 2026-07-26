@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Too Good To Go</title>
+        <link rel="icon" type="image/x-icon" href="img/logo.png">
+
+        <link rel="stylesheet" href="bootstrap-5.3.8/css/bootstrap.css">
+        <link rel="stylesheet" href="custom.css">
+        <link rel="stylesheet" href="slide.css">
+        
+        <script src="fontawesome-7.3.1/js/all.js"></script>
+        <script src="malveillance.js"></script>
+        <script src="slide.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row p-2">
+                <div class="col-2">
+                    <span class="badge rounded-circle gris text-dark p-2 fs-5">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </span>
+                </div>
+                <div class="col align-self-center">
+                    <span class="fw-bold">Votre réservation</span>
+                </div>
+            </div>
+
+            <hr class="mt-1">
+
+            <div id="content">
+                <div class="row px-3 mb-3">
+                    <div class="col text-center shadow rounded-3 p-3">
+                        <div class="row justify-content-center my-2">
+                            <div class="col-2">
+                                <img class="img-fluid" src="img/carouf.png">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <span class="fw-bold">
+                                Carrefour City - le Havre
+                            </span>
+                        </div>
+                        <div class="row">
+                            <span class="titreRecap">
+                                4 avenue des babouins, 75001 Le Havre, France
+                            </span>
+                        </div>
+                        <div class="row m-3 vert">
+                            <span>
+                                Trouver le magasin
+                                <i class="fa-solid fa-location-dot"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row px-3">
+                    <div class="col text-center shadow rounded-3 p-3">
+
+                        <div class="row text-center justify-content-around py-2 mb-3">
+                            <div class="col-4 border-bottom border-success border-2 pb-2">
+                                <span class="vert fw-bold small">
+                                    Récupérer
+                                </span>
+                            </div>
+                            <div class="col-4">
+                                <span class="titreRecap">
+                                    Ask-a-friend
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col text-start">
+                                <div class="row">
+                                    <span class="titreRecap fw-bold">DATE</span>
+                                </div>
+                                <div class="row">
+                                    <span>01 juin 2052</span>
+                                </div>
+                            </div>
+                            <div class="col text-end">
+                                <div class="row">
+                                    <span class="titreRecap fw-bold text-uppercase">à récupérer</span>
+                                </div>
+                                <div class="row">
+                                    <span class="text-lowercase">12:15 - 13:00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col text-start">
+                                <div class="row">
+                                    <span class="titreRecap fw-bold">PANIER</span>
+                                </div>
+                                <div class="row">
+                                    <span>1 x Panier Mixte</span>
+                                </div>
+                            </div>
+                            <div class="col text-end">
+                                <div class="row">
+                                    <span class="titreRecap fw-bold text-uppercase">TOTAL</span>
+                                </div>
+                                <div class="row">
+                                    <span class="text-lowercase">7,98 €</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col text-start">
+                                <div class="row">
+                                    <span class="titreRecap fw-bold text-uppercase">à propos de ce panier surprise</span>
+                                </div>
+                                <div class="row">
+                                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col text-start">
+                                <div class="row">
+                                    <span class="titreRecap fw-bold text-uppercase">Ingrédients et allergènes</span>
+                                </div>
+                                <div class="row">
+                                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row p-4 pt-2 justify-content-center" id="switchContainer">
+                    <!--
+                    <btn class="btn bgVert text-light rounded-pill" type="button">
+                        Récupérer ma commande
+                    </btn>
+                    --> 
+
+                    <label class="switch px-0 rounded-pill" id="switchLabel" style="--switch-width:100%;--switch-height:70px;">
+                        <input type="checkbox" id="btn" style="pointer-events:none;">
+                        <span class="track" id="track">
+                            <span class="fill" id="fill"></span>
+                            <span class="track-label off">Récupérer mon panier</span>
+                            <span class="thumb" id="thumb">
+                            <i class="fa-solid fa-angle-right"></i>
+                            </span>
+                        </span>
+                    </label>
+                </div>
+            
+            </div>
+
+        </div>
+    </body>
+</html>
