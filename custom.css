@@ -39,54 +39,91 @@ body{
 
 /** slide de fou **/
 
-/* The switch - the box around the slider */
+label{
+    border: solid, #006757;
+}
+
 .switch {
- font-size: 17px;
- position: relative;
- display: inline-block;
- width: 100%;
- height: 60px;
+  position: relative;
+  display: inline-block;
+  --switch-width: 120px;   /* longueur : modifie ici */
+  --switch-height: 30px;   /* hauteur : modifie ici */
 }
 
-/* Hide default HTML checkbox */
 .switch input {
- opacity: 1;
- width: 0;
- height: 0;
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
-/* The slider */
-.slider {
- position: absolute;
- cursor: pointer;
- top: 0;
- left: 0;
- right: 0;
- bottom: 0px;
- background: #fff;
- transition: .4s;
- border-radius: 30px;
- border: 1px solid #ccc;
+.track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: var(--switch-width);
+  height: var(--switch-height);
+  border-radius: calc(var(--switch-height) / 2);
+  background: #fff;
+  border: 0px solid #006757;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  box-sizing: border-box;
 }
 
-.slider:before {
- position: absolute;
- content: "";
- height: 3.4em;
- width: 3.4em;
- border-radius: 30px;
- left: 0px;
- top: 0;
- bottom: 0;
- background-color: #006757;
- transition: .4s;
+input:checked + .track {
+  background: #006757;
 }
 
-input:checked + .slider {
- background-color: #006757;
- border: 1px solid transparent;
+.track-label {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #66666646;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
 }
 
-input:checked + .slider:before {
- transform: translateX(17em);
+.track-label.on {
+  left: calc(var(--switch-height) * 0.7);
+  opacity: 0;
+  color: white;
+}
+
+.track-label.off {
+  right: calc(var(--switch-height) * 0.7);
+  opacity: 1;
+}
+
+input:checked + .track .track-label.on {
+  opacity: 1;
+}
+
+input:checked + .track .track-label.off {
+  opacity: 0;
+}
+
+.thumb {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: calc(var(--switch-height) - 0px);
+  height: calc(var(--switch-height) - 0px);
+  border-radius: 50%;
+  background: #006757;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(var(--switch-height) * 0.5);
+  color: #fff;
+  transition: left 0.2s ease;
+}
+
+input:checked + .track .thumb {
+  left: calc(var(--switch-width) - var(--switch-height) + 2px);
+  color: #fff;
 }
