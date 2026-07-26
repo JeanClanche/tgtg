@@ -38,16 +38,15 @@ body{
 
 
 /** slide de fou **/
-
-label{
-    border: solid, #006757;
+label {
+  border: 3px solid #006757;
 }
 
 .switch {
   position: relative;
   display: inline-block;
-  --switch-width: 120px;   /* longueur : modifie ici */
-  --switch-height: 30px;   /* hauteur : modifie ici */
+  --switch-width: 120px;
+  --switch-height: 30px;
 }
 
 .switch input {
@@ -65,22 +64,32 @@ label{
   height: var(--switch-height);
   border-radius: calc(var(--switch-height) / 2);
   background: #fff;
-  border: 0px solid #006757;
   cursor: pointer;
   transition: background 0.2s ease;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
-input:checked + .track {
+.fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
   background: #006757;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .track-label {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  inset: 0;
+  z-index: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
   font-size: 18px;
   font-weight: 500;
   color: #66666646;
@@ -89,13 +98,11 @@ input:checked + .track {
 }
 
 .track-label.on {
-  left: calc(var(--switch-height) * 0.7);
   opacity: 0;
   color: white;
 }
 
 .track-label.off {
-  right: calc(var(--switch-height) * 0.7);
   opacity: 1;
 }
 
@@ -120,10 +127,6 @@ input:checked + .track .track-label.off {
   justify-content: center;
   font-size: calc(var(--switch-height) * 0.5);
   color: #fff;
+  z-index: 2;
   transition: left 0.2s ease;
-}
-
-input:checked + .track .thumb {
-  left: calc(var(--switch-width) - var(--switch-height) + 2px);
-  color: #fff;
 }

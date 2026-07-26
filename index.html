@@ -140,14 +140,14 @@
                     </btn>
                     --> 
 
-                    <label class="switch px-0 rounded-pill" style="--switch-width:100%;--switch-height:70px;">
-                        <input type="checkbox" id="btn">
-                        <span class="track">
-                        <!-- <span class="track-label on">activé</span> -->
-                        <span class="track-label off">Récupérer mon panier</span>
-                        <span class="thumb">
+                    <label class="switch px-0 rounded-pill" id="switchLabel" style="--switch-width:100%;--switch-height:70px;">
+                        <input type="checkbox" id="btn" style="pointer-events:none;">
+                        <span class="track" id="track">
+                            <span class="fill" id="fill"></span>
+                            <span class="track-label off">Récupérer mon panier</span>
+                            <span class="thumb" id="thumb">
                             <i class="fa-solid fa-angle-right"></i>
-                        </span>
+                            </span>
                         </span>
                     </label>
                 </div>
