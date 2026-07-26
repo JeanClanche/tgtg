@@ -22,6 +22,14 @@ body{
     background-color: #fdf8f5;
 }
 
-#trouver{
+.vert{
     color : #006757;
+}
+
+.bgVert{
+    background-color: #006757;
+}
+
+.small{
+    font-size: small;
 }
