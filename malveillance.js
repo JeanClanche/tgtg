@@ -1,7 +1,35 @@
 document.addEventListener("DOMContentLoaded", async function() {
-    
-    const data = JSON.parse(sessionStorage.getItem('formData'));
-    console.log(data);
+    let data
+    if(sessionStorage.getItem('formData') != null){      
+
+        data = JSON.parse(sessionStorage.getItem('formData'));
+        console.log(data);
+
+        if(
+            data.nom &&
+            data.logo &&
+            data.type &&
+            data.nb &&
+            data.prix &&
+            data.deb &&
+            data.fin &&
+            data.ing &&
+            data.desc
+        ){
+            console.log('form ok')
+        }else{
+            window.location.href = "index"
+        }
+    }
+
+    const prix = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(data.prix*data.nb)
+    document.getElementById("recup").textContent = `${data.deb} - ${data.fin}`
+    document.getElementById('total').textContent = prix
+    document.getElementById('panier').textContent = `${data.nb} x ${data.type}`
+    document.getElementById('nom').textContent = data.nom
+    document.getElementById('desc').textContent = data.desc
+    document.getElementById('ing').textContent = data.ing
+    document.getElementById('dateRecup').textContent = getDateFrench()
 
     const btn = document.getElementById('btn')
     const content = document.getElementById('content')
@@ -68,7 +96,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                                     <span class="titreRecap fw-bold">RÉCUPÉRÉE</span>
                                 </div>
                                 <div class="row">
-                                    <span>01 juin 2052</span>
+                                    <span>${getDateFrench()}</span>
                                 </div>
                             </div>
                             <div class="col text-end">
@@ -76,7 +104,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                                     <span class="titreRecap fw-bold">N° DE COMMANDE</span>
                                 </div>
                                 <div class="row">
-                                    <span class="text-lowercase">UIZUDGI</span>
+                                    <span class="text-lowercase">${randomOrder()}</span>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +122,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                                     <span class="titreRecap fw-bold">TOTAL</span>
                                 </div>
                                 <div class="row">
-                                    <span class="text-lowercase">67,67€</span>
+                                    <span class="text-lowercase">${prix}</span>
                                 </div>
                             </div>
                         </div>
@@ -139,4 +167,60 @@ function clearContent(item){
     while(item.firstChild){
         item.removeChild(item.firstChild)
     }
+}
+
+function getDateFrench(){
+    const date = new Date
+    const j = date.getDate()
+    const a = date.getFullYear()
+    const month = date.getMonth()
+    let m
+    switch (month) {
+        case 0 :
+            m = "Janvier";
+            break;
+        case 1 :
+            m = "Février";
+            break;
+        case 2 :
+            m = "Mars";
+            break;
+        case 3 :
+            m = "Avril";
+            break;
+        case 4 :
+            m = "Mai";
+            break;
+        case 5 :
+            m = "Juin";
+            break;
+        case 6 :
+            m = "Juillet";
+            break;
+        case 7 :
+            m = "Août";
+            break;
+        case 8 :
+            m = "Septembre";
+            break;
+        case 9 :
+            m = "Octobre";
+            break;
+        case 10 :
+            m = "Novembre";
+            break;
+        case 11 :
+            m = "Décembre";
+            break;
+    }
+    return `${j} ${m} ${a}`
+}
+
+function randomOrder(){
+    const chars = "abcdefghijklmnopqrstuvwxyz0123456789"
+    let result = ""
+    for (let i = 0 ; i<13 ; i++){
+        result += chars[Math.floor(Math.random() * chars.length)]
+    }
+    return result
 }
