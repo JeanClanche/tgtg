@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             data.deb &&
             data.fin &&
             data.ing &&
+            data.adresse &&
             data.desc
         ){
             console.log('form ok')
@@ -54,6 +55,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     document.getElementById('desc').textContent = data.desc
     document.getElementById('ing').textContent = data.ing
     document.getElementById('dateRecup').textContent = getDateFrench()
+    document.getElementById('adresse').textContent = data.adresse
 
     const btn = document.getElementById('btn')
     const content = document.getElementById('content')

@@ -14,7 +14,7 @@
 }
 
 .titreRecap{
-    color: grey;
+    color: rgb(80, 80, 80);
     font-size: small;
 }
 
@@ -36,4 +36,8 @@ body{
 
 .container-fluid{
     min-height: 100%;
+}
+
+#switchContainer{
+    border-top: dashed rgba(128, 128, 128, 0.211);
 }
