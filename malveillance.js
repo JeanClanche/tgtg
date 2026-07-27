@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     const list = JSON.parse(await json.text())
 
     let path = ''
+    console.log(data)
     if(data.logo != 'custom'){
         path = `img/${list[data.logo]['path']}`
     }else{
