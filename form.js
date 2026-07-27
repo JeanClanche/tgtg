@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         
         const formData = new FormData(this);
         const data = Object.fromEntries(formData.entries());
+        sessionStorage.setItem('formData', JSON.stringify(data));
         
         const imgInput = document.getElementById('custom').files[0]
         if(imgInput){

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     if(sessionStorage.getItem('formData') != null){      
 
         data = JSON.parse(sessionStorage.getItem('formData'));
-        console.log(data);
+        //console.log(data);
 
         if(
             data.nom &&
@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", async function() {
     const list = JSON.parse(await json.text())
 
     let path = ''
-    console.log(data)
     if(data.logo != 'custom'){
         path = `img/${list[data.logo]['path']}`
     }else{
