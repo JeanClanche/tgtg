@@ -23,7 +23,11 @@ document.addEventListener("DOMContentLoaded", async function() {
     }
 
     document.getElementById('back').addEventListener('click', function(){
-        document.querySelector('body').requestFullscreen()
+        if(document.fullscreenElement == null){            
+            document.querySelector('body').requestFullscreen()
+        }else{
+            document.exitFullscreen()
+        }
     })
 
     const prix = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(data.prix*data.nb)
