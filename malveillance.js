@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", async function() {
     }
     if(sessionStorage.getItem('customLogo') != null){
         customLogo = sessionStorage.getItem('customLogo')
-        console.log(customLogo)
     }
 
     document.getElementById('back').addEventListener('click', function(){

@@ -6,13 +6,23 @@ document.addEventListener("DOMContentLoaded", async function() {
         const formData = new FormData(this);
         const data = Object.fromEntries(formData.entries());
         
-        if(document.getElementById('custom').value != ''){
-            sessionStorage.setItem('customLogo', document.getElementById('custom').value)
+        const imgInput = document.getElementById('custom').files[0]
+        if(imgInput){
+            const reader = new FileReader()
+            reader.onload = function (event) {
+                const dataUrl = event.target.result;
+                try {
+                    sessionStorage.setItem('customLogo', dataUrl);
+                    window.location.href = 'malveillance.html';
+                } catch (err) {
+                    alert("Erreur lors de la sauvegarde : l'image est probablement trop lourde.");
+                }
+            };
+            reader.readAsDataURL(imgInput);
         }else{
             sessionStorage.removeItem('customLogo')
+            window.location.href = 'malveillance.html';
         }
-        sessionStorage.setItem('formData', JSON.stringify(data));
-        window.location.href = 'malveillance.html';
     });
 
     //remplissage du select logo
