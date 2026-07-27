@@ -33,3 +33,7 @@ body{
 .small{
     font-size: small;
 }
+
+.container-fluid{
+    min-height: 100%;
+}

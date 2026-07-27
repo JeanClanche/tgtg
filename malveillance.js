@@ -22,6 +22,10 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
     }
 
+    document.getElementById('back').addEventListener('click', function(){
+        document.querySelector('body').requestFullscreen()
+    })
+
     const prix = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(data.prix*data.nb)
     document.getElementById("recup").textContent = `${data.deb} - ${data.fin}`
     document.getElementById('total').textContent = prix
