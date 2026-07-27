@@ -3,7 +3,7 @@
     <head>        
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Too Good To Go</title>
+        <title>Too Good To Pay</title>
         <link rel="icon" type="image/x-icon" href="img/logo.png">
 
         <link rel="stylesheet" href="bootstrap-5.3.8/css/bootstrap.css">
@@ -33,12 +33,13 @@
 
                             <div class="form-floating mb-3">
                                 <select class="form-select" name="logo" id="floatingSelect">
-                                    <option value="market">Carrefour Market</option>
-                                    <option value="city">Carrefour City</option>
-                                    <option value="paul">Paul</option>
-                                    <option value="Autre">Autre</option>
+                                    <option value="custom">Custom</option>
                                 </select>
                                 <label for="floatingSelect">Logo de l'établissement</label>
+                            </div>
+
+                            <div class="mb-3">
+                                <input class="form-control" type="file" accept="image/*" id="custom">
                             </div>
 
                             <div class="form-floating mb-3">

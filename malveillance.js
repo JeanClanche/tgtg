@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", async function() {
     let data
+    let customLogo
     if(sessionStorage.getItem('formData') != null){      
 
         data = JSON.parse(sessionStorage.getItem('formData'));
@@ -21,6 +22,10 @@ document.addEventListener("DOMContentLoaded", async function() {
             window.location.href = "index"
         }
     }
+    if(sessionStorage.getItem('customLogo') != null){
+        customLogo = sessionStorage.getItem('customLogo')
+        console.log(customLogo)
+    }
 
     document.getElementById('back').addEventListener('click', function(){
         if(document.fullscreenElement == null){            
@@ -29,6 +34,17 @@ document.addEventListener("DOMContentLoaded", async function() {
             document.exitFullscreen()
         }
     })
+
+    const json = await fetch('logo.json')
+    const list = JSON.parse(await json.text())
+
+    let path = ''
+    if(data.logo != 'custom'){
+        path = `img/${list[data.logo]['path']}`
+    }else{
+        path = customLogo
+    }
+    document.getElementById('logo').setAttribute('src', path)
 
     const prix = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(data.prix*data.nb)
     document.getElementById("recup").textContent = `${data.deb} - ${data.fin}`
@@ -85,7 +101,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                     <div class="col">
                         <div class="row p-3">
                             <div class="col-2 text-end align-self-center">
-                                <img class='img-fluid' src='img/carouf.png'>
+                                <img class='img-fluid' src='${path}'>
                             </div>
                             <div class="col text-start">
                                 <div class="row">

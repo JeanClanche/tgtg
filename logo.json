@@ -1,0 +1,14 @@
+[
+    {
+        "name" : "Carrefour Market",
+        "path" : "market.png"
+    },
+    {
+        "name" : "Carrefour City",
+        "path" : "city.png"
+    },
+    {
+        "name" : "Paul",
+        "path" : "paul.png"
+    }
+]
