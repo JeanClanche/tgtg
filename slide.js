@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     function setFillWidth(x) {
-        fill.style.width = (x + thumb.offsetWidth) + 'px';
+        fill.style.width = (x + thumb.offsetWidth/2) + 'px';
     }
 
     function setThumbX(x) {
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function(){
         thumb.style.transition = 'left 0.2s ease';
         fill.style.transition = 'width 0.2s ease';
         thumb.style.left = START_X + 'px';
-        fill.style.width = (START_X + thumb.offsetWidth) + 'px';
+        fill.style.width = (START_X + thumb.offsetWidth/2) + 'px';
         input.checked = false;
     }
 
