@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     document.getElementById('total').textContent = prix
     document.getElementById('panier').textContent = `${data.nb} x ${data.type}`
     document.getElementById('nom').textContent = data.nom
-    document.getElementById('desc').textContent = data.desc
+    document.getElementById('desc').textContent = "Ce commerçant vous demande de ramener votre propre contenant pour récupérer votre panier. Nous vous encourageons également à apporter votre propre sac pour le ramener !"
     document.getElementById('ing').textContent = data.ing
     document.getElementById('dateRecup').textContent = getDateFrench()
     document.getElementById('adresse').textContent = data.adresse
