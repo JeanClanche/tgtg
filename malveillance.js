@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     }
     document.getElementById('logo').setAttribute('src', path)
 
+    const order = randomOrder()
     const prix = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(data.prix*data.nb)
     document.getElementById("recup").textContent = `${data.deb} - ${data.fin}`
     document.getElementById('total').textContent = prix
@@ -53,7 +54,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     document.getElementById('adresse').textContent = data.adresse
     document.getElementById('modalNb').textContent = `${data.nb} x ${data.type}`
     document.getElementById('modalPrix').textContent = prix
-    document.getElementById('modalNum').textContent = randomOrder()
+    document.getElementById('modalNum').textContent = order
 
     const btn = document.getElementById('btn')
     const content = document.getElementById('content')
@@ -155,7 +156,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                                     <span class="titreRecap fw-bold">N° DE COMMANDE</span>
                                 </div>
                                 <div class="row">
-                                    <span class="text-uppercase">${randomOrder()}</span>
+                                    <span class="text-uppercase">${order}</span>
                                 </div>
                             </div>
                         </div>
