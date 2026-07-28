@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                 </div>
             </div>
             `
-                }, 2000)
+                }, 0)
             }, 400);
         }
     })
