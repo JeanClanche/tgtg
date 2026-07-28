@@ -100,6 +100,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                 setTimeout(() => {
                     clearContent(content)
                     content.innerHTML = `
+                    <!--
             <div id="exp" class="row rounded m-0 text-center text-light py-2 mb-3 justify-content-center">
                 <div class="row">
                     <span class="fw-bold" id="expTxt">Comment s'est passée votre expérience globale ?</span>
@@ -115,6 +116,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                     </div>
                 </div>
             </div>
+            -->
 
             <!-- Carré vert foncé -->
             <div id="recap" class="row text-center m-0 rounded justify-content-center p-1 pt-0 mb-4">
@@ -124,17 +126,17 @@ document.addEventListener("DOMContentLoaded", async function() {
                 </span>
                 <div class="row bg-light rounded">
                     <div class="col">
-                        <div class="row p-3">
+                        <div class="row p-3 ps-0">
                             <div class="col-2 text-end align-self-center">
                                 <img class='img-fluid' src='${path}'>
                             </div>
-                            <div class="col text-start">
+                            <div class="col text-start ps-0">
                                 <div class="row">
                                     <span class="fw-bold">${data.nom}</span>
                                 </div>
                                 <div class="row">
                                     <span class="">
-                                        ${data.type}
+                                        ${data.adresse}
                                     </span>
                                 </div>
                             </div>
@@ -153,7 +155,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                                     <span class="titreRecap fw-bold">N° DE COMMANDE</span>
                                 </div>
                                 <div class="row">
-                                    <span class="text-lowercase">${randomOrder()}</span>
+                                    <span class="text-uppercase">${randomOrder()}</span>
                                 </div>
                             </div>
                         </div>

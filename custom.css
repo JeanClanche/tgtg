@@ -47,12 +47,16 @@ body{
     min-height: 100%;
 }
 
+#rowModalNum{
+    margin: 10%;
+}
+
 #switchContainer{
     border-top: dashed rgba(128, 128, 128, 0.211);
 }
 
 .modal-dialog{
-    max-height: 50% !important
+    max-height: 55% !important
 }
 
 .modal.modal-bottom .modal-dialog {
