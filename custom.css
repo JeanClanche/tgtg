@@ -14,7 +14,12 @@
 }
 
 .titreRecap{
-    color: rgb(80, 80, 80);
+    color: rgb(170, 170, 170);
+    font-size: small;
+}
+
+#adresse{
+    color : rgb(20, 20, 20);
     font-size: small;
 }
 
@@ -28,6 +33,10 @@ body{
 
 .bgVert{
     background-color: #006757;
+}
+
+.container-fluid{
+    background: #fff9f7;
 }
 
 .small{

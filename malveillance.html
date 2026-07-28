@@ -16,7 +16,7 @@
         <script src="bootstrap-5.3.8/js/bootstrap.js"></script>
     </head>
     <body>
-        <div class="container-fluid bg-light">
+        <div class="container-fluid">
             <div class="row p-2">
                 <div class="col-1 p-0">
                     <span id="back" class="badge rounded-circle text-dark p-2 fs-5">
@@ -28,13 +28,13 @@
                 </div>
             </div>
 
-            <hr class="mt-1 mb-3">
+            <hr class="mt-1 mb-3 border-0">
 
             <div id="content">
                 <div class="row px-3 mb-3">
-                    <div class="col text-center rounded-3 shadow">
+                    <div class="col text-center rounded-3 shadow-sm bg-light">
                         <div class="row justify-content-center my-2">
-                            <div class="col-3">
+                            <div class="col-2">
                                 <img class="img-fluid" id="logo">
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                             </span>
                         </div>
                         <div class="row">
-                            <span class="titreRecap fs-6" id="adresse">
+                            <span class="" id="adresse">
                             </span>
                         </div>
                         <div class="row m-3 vert">
@@ -56,15 +56,15 @@
                 </div>
 
                 <div class="row px-3">
-                    <div class="col text-center shadow-lg rounded-4 px-3 mb-4">
+                    <div class="col text-center shadow-sm rounded-4 px-3 mb-4 bg-light">
 
                         <div class="row text-center justify-content-around py-2 mb-3">
-                            <div class="col-5 border-bottom border-success border-3 pb-2">
+                            <div class="col-6 border-bottom border-success border-3 pb-2">
                                 <span class="vert fw-bold small fs-6">
-                                    Je récupère la commande
+                                    Je récupère<br>la commande
                                 </span>
                             </div>
-                            <div class="col-5 align-self-center">
+                            <div class="col-6 align-self-center">
                                 <span class="titreRecap fs-6">
                                     Demander à un ami
                                 </span>
@@ -135,6 +135,13 @@
                             <btn class="btn bgVert text-light rounded-pill" type="button" id="btnRecup">
                                 Cliquer pour récupérer
                             </btn>
+                        </div>
+
+                        <div class="row justify-content-center mt-3 mb-5">
+                            <span class="vert">
+                                Recevoir un rappel
+                                <i class="fa-regular fa-bell"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
