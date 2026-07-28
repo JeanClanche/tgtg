@@ -41,3 +41,7 @@ body{
 #switchContainer{
     border-top: dashed rgba(128, 128, 128, 0.211);
 }
+
+.modal-dialog{
+    max-height: 50% !important
+}

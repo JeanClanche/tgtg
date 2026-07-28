@@ -14,6 +14,11 @@ if(sessionStorage.getItem('customLogo') != undefined){
 
 document.addEventListener("DOMContentLoaded", async function() {
 
+    const modal = new bootstrap.Modal('#modal')
+    document.getElementById('btnRecup').addEventListener('click', function(){
+        modal.show()
+    })
+
     document.getElementById('back').addEventListener('click', function(){
         if(document.fullscreenElement == null){            
             document.querySelector('body').requestFullscreen()
@@ -46,6 +51,9 @@ document.addEventListener("DOMContentLoaded", async function() {
     document.getElementById('ing').textContent = data.ing
     document.getElementById('dateRecup').textContent = getDateFrench()
     document.getElementById('adresse').textContent = data.adresse
+    document.getElementById('modalNb').textContent = `${data.nb} x ${data.type}`
+    document.getElementById('modalPrix').textContent = prix
+    document.getElementById('modalNum').textContent = randomOrder()
 
     const btn = document.getElementById('btn')
     const content = document.getElementById('content')

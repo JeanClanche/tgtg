@@ -13,6 +13,7 @@
         <script src="fontawesome-7.3.1/js/all.js"></script>
         <script src="malveillance.js"></script>
         <script src="slide.js"></script>
+        <script src="bootstrap-5.3.8/js/bootstrap.js"></script>
     </head>
     <body>
         <div class="container-fluid bg-light">
@@ -131,22 +132,9 @@
                         </div>
 
                         <div class="row p-3 justify-content-center" id="switchContainer">
-                            <!--
-                            <btn class="btn bgVert text-light rounded-pill" type="button">
-                                Récupérer ma commande
+                            <btn class="btn bgVert text-light rounded-pill" type="button" id="btnRecup">
+                                Cliquer pour récupérer
                             </btn>
-                            --> 
-
-                            <label class="switch px-0 rounded-pill" id="switchLabel" style="--switch-width:100%;--switch-height:70px;">
-                                <input type="checkbox" id="btn" style="pointer-events:none;">
-                                <span class="track" id="track">
-                                    <span class="fill" id="fill"></span>
-                                    <span class="track-label off">Récupérer mon panier</span>
-                                    <span class="thumb" id="thumb">
-                                    <i class="fa-solid fa-angle-right"></i>
-                                    </span>
-                                </span>
-                            </label>
                         </div>
                     </div>
                 </div>
@@ -154,5 +142,66 @@
             </div>
 
         </div>
+
+        <!-- modal -->
+        <div class="modal" tabindex="-1" id="modal">
+            <div class="modal-dialog modal-fullscreen fixed-bottom">
+                <div class="modal-content rounded-top-3">
+
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body text-center pt-0">
+
+                        <h3 class="fw-bold mb-3">Commande à récupérer</h3>
+
+                        <div class="row justify-content-center">
+                            <div class="col-3">
+                                <span id="modalNb"></span>
+                            </div>
+                            <div class="col-3">
+                                <span class="fw-bold" id="modalPrix"></span>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center m-4">
+                            <div class="col">
+                                <span class="text-uppercase p-2 bgVert text-light fw-bold rounded fs-5" id="modalNum"></span>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-2 align-self-center text-end p-0">
+                                <span><i class="fa-solid fa-circle-exclamation"></i></span>
+                            </div>
+                            <div class="col text-start">
+                                <span>Validez uniquement en présence du personnel</span>
+                            </div>
+                        </div>
+
+                        <div class="row p-3 pt-1 justify-content-center">
+                            <div class="col">
+                                <div class="row">
+                                <label class="switch px-0 rounded-pill" id="switchLabel" style="--switch-width:100%;--switch-height:50px;">
+                                    <input type="checkbox" id="btn" style="pointer-events:none;">
+                                    <span class="track" id="track">
+                                        <span class="fill" id="fill"></span>
+                                        <span class="track-label off">Valider pour récupérer</span>
+                                        <span class="thumb" id="thumb">
+                                            <i class="fa-solid fa-angle-right"></i>
+                                        </span>
+                                    </span>
+                                </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </body>
 </html>
