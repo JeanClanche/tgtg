@@ -63,15 +63,40 @@ document.addEventListener("DOMContentLoaded", async function() {
         if(btn.checked){
             btn.setAttribute('disabled', '')
             setTimeout(() => {
-                clearContent(switchContainer)
-                const col = document.createElement('div')
-                col.classList.add('col-4', 'text-center')
+                const switchRow = document.getElementById('switchRow')
+                const warning = document.getElementById('warning')
+                switchRow.parentElement.removeChild(switchRow)
+                warning.parentElement.removeChild(warning)
+
+                //gif
+                const gifRow = document.createElement('div')
+                gifRow.classList.add('row', 'justify-content-center')
+                const gifCol = document.createElement('div')
+                gifCol.classList.add('col-3', 'text-center')
                 const img = document.createElement('img')
                 img.classList.add('img-fluid')
                 img.setAttribute('src', 'img/ok.svg')
 
-                col.append(img)
-                switchContainer.append(col)
+                gifCol.append(img)
+                gifRow.append(gifCol)
+
+                //messages de con
+                const confirmRow = document.createElement('div')
+                confirmRow.classList.add('row', 'justify-content-center')
+                const confirmSpan = document.createElement('span')
+                confirmSpan.textContent = 'Collecte confirmée'
+                confirmSpan.classList.add('vert', 'fw-bold')
+                confirmRow.append(confirmSpan)
+
+                const consigneRow = document.createElement('div')
+                consigneRow.classList.add('row', 'text-start', 'px-3')
+                const consigneSpan = document.createElement('span')
+                //consigneSpan.classList.add('')
+                consigneSpan.textContent = 'Montrez l\'écran au commerçant pour récupérer votre panier !'
+                consigneRow.append(consigneSpan)
+
+
+                document.getElementById('modalBody').append(gifRow, confirmRow, consigneRow)
                 setTimeout(() => {
                     clearContent(content)
                     content.innerHTML = `
