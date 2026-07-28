@@ -1,31 +1,18 @@
+if(sessionStorage.getItem('formData') != undefined){
+
+    data = JSON.parse(sessionStorage.getItem('formData'));
+    //console.log(data);
+    console.log('form ok')
+    
+}else{
+    window.location.href = "index"
+}
+
+if(sessionStorage.getItem('customLogo') != undefined){
+    customLogo = sessionStorage.getItem('customLogo')
+}
+
 document.addEventListener("DOMContentLoaded", async function() {
-    let data
-    let customLogo
-    if(sessionStorage.getItem('formData') != null){      
-
-        data = JSON.parse(sessionStorage.getItem('formData'));
-        //console.log(data);
-
-        if(
-            data.nom &&
-            data.logo &&
-            data.type &&
-            data.nb &&
-            data.prix &&
-            data.deb &&
-            data.fin &&
-            data.ing &&
-            data.adresse &&
-            data.desc
-        ){
-            console.log('form ok')
-        }else{
-            window.location.href = "index"
-        }
-    }
-    if(sessionStorage.getItem('customLogo') != null){
-        customLogo = sessionStorage.getItem('customLogo')
-    }
 
     document.getElementById('back').addEventListener('click', function(){
         if(document.fullscreenElement == null){            
@@ -42,7 +29,11 @@ document.addEventListener("DOMContentLoaded", async function() {
     if(data.logo != 'custom'){
         path = `img/${list[data.logo]['path']}`
     }else{
-        path = customLogo
+        if(customLogo != null){
+            path = customLogo
+        }else{
+            path = list[0]['path']
+        }
     }
     document.getElementById('logo').setAttribute('src', path)
 
