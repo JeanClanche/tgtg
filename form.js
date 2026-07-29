@@ -4,6 +4,12 @@ document.addEventListener("DOMContentLoaded", async function() {
     document.getElementById('tooltip').setAttribute('data-bs-title', defaultText)
     const tooltip = new bootstrap.Tooltip(document.getElementById('tooltip'))
 
+    if(document.getElementById('switchInstructions').checked){
+        document.getElementById('ing').setAttribute('disabled', '')
+    }else{
+        document.getElementById('ing').removeAttribute('disabled')
+    }
+
     document.querySelector('form').addEventListener('submit', function(e) {
         e.preventDefault();
         
