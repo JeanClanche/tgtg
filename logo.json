@@ -14,5 +14,9 @@
     {
         "name" : "Wok Grill France",
         "path" : "wok.png"
+    },
+    {
+        "name" : "Monoprix",
+        "path" : "monoprix.webp"
     }
 ]
