@@ -3,8 +3,15 @@ document.addEventListener("DOMContentLoaded", async function() {
     document.querySelector('form').addEventListener('submit', function(e) {
         e.preventDefault(); // empêche l'envoi HTTP classique
         
+        const defaultText = "Le commerçant fournira l'emballage, mais nous vous encourageons à apporter votre propre sac pour ramener le panier chez vous."
+
+
         const formData = new FormData(this);
-        const data = Object.fromEntries(formData.entries());
+        const data = Object.fromEntries(formData.entries());      
+        if(document.getElementById('switchInstructions').checked){
+            data.ing = defaultText
+        }
+        //console.log(data)  
         sessionStorage.setItem('formData', JSON.stringify(data));
         
         const imgInput = document.getElementById('custom').files[0]
@@ -44,6 +51,16 @@ document.addEventListener("DOMContentLoaded", async function() {
             document.getElementById('custom').removeAttribute('disabled')
         }else{
             document.getElementById('custom').setAttribute('disabled', '')
+        }
+    })
+
+    const customSwitch = document.getElementById('switchInstructions')
+    const desc = document.getElementById('ing')
+    customSwitch.addEventListener('input', function(){
+        if(customSwitch.checked){
+            ing.setAttribute('disabled', '')
+        }else{
+            ing.removeAttribute('disabled')
         }
     })
 
