@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", async function() {
+        
+    const defaultText = "Le commerçant fournira l'emballage, mais nous vous encourageons à apporter votre propre sac pour ramener le panier chez vous."
+    document.getElementById('tooltip').setAttribute('data-bs-title', defaultText)
+    const tooltip = new bootstrap.Tooltip(document.getElementById('tooltip'))
 
     document.querySelector('form').addEventListener('submit', function(e) {
-        e.preventDefault(); // empêche l'envoi HTTP classique
+        e.preventDefault();
         
-        const defaultText = "Le commerçant fournira l'emballage, mais nous vous encourageons à apporter votre propre sac pour ramener le panier chez vous."
-
-
         const formData = new FormData(this);
         const data = Object.fromEntries(formData.entries());      
         if(document.getElementById('switchInstructions').checked){
