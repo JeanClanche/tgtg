@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                     <div class="col">
                         <div class="row p-3 ps-0">
                             <div class="col-2 text-end align-self-center">
-                                <img class='img-fluid' src='${path}'>
+                                <img class='img-fluid rounded-circle border' src='${path}'>
                             </div>
                             <div class="col text-start ps-0">
                                 <div class="row">
